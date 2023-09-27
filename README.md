@@ -1,4 +1,4 @@
-# АНАЛИЗ ДАННЫХ И ИСКУССТВЕННЫЙ ИНТЕЛЛЕКТ [in GameDev]
+# Анализ данных в разработке игр
 Отчет по лабораторной работе #1 выполнил(а):
 - Бабаев Тимур Ахмадалиевич
 - РИ-220912
@@ -33,104 +33,61 @@
 - ✨Magic ✨
 
 ## Цель работы
-Установить необходимое программное обеспечение, которое пригодится для создания интеллектуальных моделей на Python. Рассмотреть процесс установки игрового движка Unity для разработки игр.
+Установить необходимое программное обеспечение, которое пригодится для создания интеллектуальных моделей на Python. Рассмотреть процесс установки игрового движка Unity для разработки игр. Написать программу "Hello world" на Python и в Unity.
 
 ## Задание 1
-### Пошагово выполнить каждый пункт раздела "ход работы" с описанием и примерами реализации задач
+### Написать программу Hello World на Python с запуском в Jupiter Notebook.
 Ход работы:
-- Произвести подготовку данных для работы с алгоритмом линейной регрессии. 10 видов данных были установлены случайным образом, и данные находились в линейной зависимости. Данные преобразуются в формат массива, чтобы их можно было вычислить напрямую при использовании умножения и сложения.
+- Установил Anaconda Navigator по туториалу, представленному в описании к лабораторной работе.
+- Запустил Jupyter Notebook, создал отдельную директорию для проектов.
+- Создал новый файл HelloWorld.ipynb, в котором буду писать программу "Hello world"
+- Открыл файл HelloWorld.ipynb и выполнил задачу
 
 ```py
 
-In [ ]:
-#Import the required modules, numpy for calculation, and Matplotlib for drawing
-import numpy as np
-import matplotlib.pyplot as plt
-#This code is for jupyter Notebook only
-%matplotlib inline
-
-# define data, and change list to array
-x = [3,21,22,34,54,34,55,67,89,99]
-x = np.array(x)
-y = [2,22,24,65,79,82,55,130,150,199]
-y = np.array(y)
-
-#Show the effect of a scatter plot
-plt.scatter(x,y)
+print('Hello world!')
 
 ```
-
-- Определите связанные функции. Функция модели: определяет модель линейной регрессии wx+b. Функция потерь: функция потерь среднеквадратичной ошибки. Функция оптимизации: метод градиентного спуска для нахождения частных производных w и b.
+![image](https://github.com/truefolder/AD_ingamedev_lab1/assets/89926388/f130de24-3b05-495f-acc1-1b1a3b84fe49)
 
 
 ## Задание 2
-### Должна ли величина loss стремиться к нулю при изменении исходных данных? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ.
+### Написать программу Hello World на C# с запуском на Unity. 
+- Установил Unity Hub по туториалу, представленному в описании к лабораторной работе, установил предложенную версию редактора.
+- Создал новый 3D проект в Unity Hub
+  ![image](https://github.com/truefolder/AD_ingamedev_lab1/assets/89926388/346655dc-8c71-455d-a679-aa1c92a722b7)
+- Загрузил проект, добавил в проект скрипт HelloWorld.cs
+Вариантов реализации программы "Hello world" конкретно на Unity огромное множество. Можно выводить сообщение посредством Debug.Log() в консоль разработчика, можно создать какой-нибудь игровой объект (по типу UI-Text) и выводить сообщение в него. Я выведу сообщение через Debug.Log()
+- В функции Start() вызываю метод Debug.Log("Hello world!"), чтобы при запуске сцены в консоль выводилось сообщение
+- Повесил скрипт HelloWorld.cs на Main Camera
+  ![image](https://github.com/truefolder/AD_ingamedev_lab1/assets/89926388/ee52f017-0a53-4efd-8584-aa66433d8ebe)
+Теперь при каждом запуске игры в консоль разработчика будет выводиться сообщение "Hello world!"
+```csharp
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-```py
-
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
+public class HelloWorld : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        Debug.Log("Hello world!");
+    }
+}
 
 ```
 
 ## Задание 3
-### Какова роль параметра Lr? Ответьте на вопрос, приведите пример выполнения кода, который подтверждает ваш ответ. В качестве эксперимента можете изменить значение параметра.
+### Оформить отчет в виде документации на github (markdown-разметка).
 
-- Перечисленные в этом туториале действия могут быть выполнены запуском на исполнение скрипт-файла, доступного [в репозитории](https://github.com/Den1sovDm1triy/hfss-scripting/blob/main/ScreatingSphereInAEDT.py).
-- Для запуска скрипт-файла откройте Ansys Electronics Desktop. Перейдите во вкладку [Automation] - [Run Script] - [Выберите файл с именем ScreatingSphereInAEDT.py из репозитория].
-
-```py
-
-import ScriptEnv
-ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
-oDesktop.RestoreWindow()
-oProject = oDesktop.NewProject()
-oProject.Rename("C:/Users/denisov.dv/Documents/Ansoft/SphereDIffraction.aedt", True)
-oProject.InsertDesign("HFSS", "HFSSDesign1", "HFSS Terminal Network", "")
-oDesign = oProject.SetActiveDesign("HFSSDesign1")
-oEditor = oDesign.SetActiveEditor("3D Modeler")
-oEditor.CreateSphere(
-	[
-		"NAME:SphereParameters",
-		"XCenter:="		, "0mm",
-		"YCenter:="		, "0mm",
-		"ZCenter:="		, "0mm",
-		"Radius:="		, "1.0770329614269mm"
-	], 
-)
-
-```
+- Результатом выполнения этого задания является отчет, который вы сейчас проверяете :-)
+- https://github.com/truefolder/AD_ingamedev_lab1/blob/main/README.md
 
 ## Выводы
 
-Абзац умных слов о том, что было сделано и что было узнано.
-
-| Plugin | README |
-| ------ | ------ |
-| Dropbox | [plugins/dropbox/README.md][PlDb] |
-| GitHub | [plugins/github/README.md][PlGh] |
-| Google Drive | [plugins/googledrive/README.md][PlGd] |
-| OneDrive | [plugins/onedrive/README.md][PlOd] |
-| Medium | [plugins/medium/README.md][PlMe] |
-| Google Analytics | [plugins/googleanalytics/README.md][PlGa] |
+Я установил удобную среду разработки на Python и игровой движок Unity. Разобрался в их интерфейсе и узнал, как написать на них простейшую программу "Hello world".
 
 ## Powered by
 
